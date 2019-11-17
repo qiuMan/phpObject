@@ -1,0 +1,29 @@
+<control>
+    <command path="/" class="\mvc\DefaultCommand">
+        <view name="main" />
+        <status value="CMD_ERROR">
+            <view name="error" />
+        </status>
+    </command>
+    
+    <command path="/listvenues" class="\mvc\ListVenues">
+        <view name="listvenues" />
+    </command>
+
+    <command path="/quickaddvenue" class="\mvc\AddVenue">
+        <view name="quickadd" />
+    </command>
+    
+    <command path="/addvenue" class="\mvc\AddVenue">
+        <view name="addvenue" />
+        <status value="CMD_OK">
+            <forward path="addspace" />
+        </status>
+    </command>
+    <command path="/addspace" class="\mvc\AddSpace">
+        <view name="addspace" />
+        <status value="CMD_OK">
+            <forward path="listvenues" />
+        </status>
+    </command>
+</control>
